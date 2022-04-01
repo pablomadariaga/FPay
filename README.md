@@ -1,64 +1,53 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Configuración del proyecto
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+De acuerdo a los requerimientos de la prueba para desarrollo practico en el proceso de selección, estos son los puntos a seguir para la configuración del proyecto.
 
-## About Laravel
+-   Se asume como primer punto que apache, mysql y php ya han sido instalados y configurados en el servidor.
+-   Instalar composer de manera global para nuestro sistema operativo.
+-   Clonar el repositorio al servidor donde correremos nuesta aplicación.
+-   Configurar el archivo con las variables de entorno para nuestra aplicación.
+-   Instalar las dependencias del proyecto.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Instalar composer
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+En el siguiente enlace podemos encontrar una guía completa sobre la instalación y configuración de Composer en nuestro S.O de manera global [composer](https://getcomposer.org/doc/00-intro.md).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Clonar repositorio
+Copiamos el repositorio al root de nuestro servidor apache, _folder_ puede ser cualquier denominación sin caracteres especiales.
 
-## Learning Laravel
+-   git clone https://gitlab.com/eyler/fspay _folder_
+-   Ahora ingresamos a nuestra carpeta **fspay**, de aquí en adelante los pasos a seguir son dentro de esta ruta
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Configurar .env
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Después de clonar nuestro repositorio, accedemos a nuestro proyecto desde la terminal, luego debemos duplicar el archivo **.env.example** con el nombre del nuevo archivo igual a **.env** y configurar las siguientes variables.
 
-## Laravel Sponsors
+-   comando: cp .env.example .env
+-   variables
+    1. APP_NAME = 'El nombre que queramos para el proyecto'
+    1. APP_URL = 'Url o IP designada para correr el proyecto'
+    1. DB_HOST = HOST para nuestro servidor mysql
+    1. DB_PORT = PUERTO para nuestro servidor mysql
+    1. DB_DATABASE = Nombre de la base de datos que creamos
+    1. DB_USERNAME = Nombre de usuario de mysql
+    1. DB_PASSWORD = Si el usuario tiene contraseña
+    1. USER_API_HOST = 'Url de la api que gestiona los usuarios'
+    1. APP_LANG = 'El lenguaje inicial que se quiere en la aplicación'
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Dependencias
 
-### Premium Partners
+Ejecute los siguientes comandos desde la consola dentro de nuestra carpeta raiz del proyecto para instalar todas las dependecias de php.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+-   composer i
+-   php artisan config:cache
+-   php artisan key:generate
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    **Para finalizar corremos el servidor**
+-   _php artisan serve_ , este comando no es necesario si tenemos un servidor para descubrir nuestras aplicaciones automaticamente, simplemente accedemos a la url configurada en nuestro servidor para la aplicación
 
-## Code of Conduct
+Ahora puede acceder a la aplicación *FsPay*, por medio de la ip o url designada.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Cualquier duda sobre la configuración del proyecto, puede comunicarse conmigo por medio de correo electrónico o celular. 
+**3146199466**
+[juanpablomadariagacardona@gmail.com](mailto:mailjuanpablomadariagacardona@gmail.com)
